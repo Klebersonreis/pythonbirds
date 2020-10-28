@@ -92,7 +92,31 @@ Método girar_a_esquerda
     >>> carro.calcular_direcao()
     'Oeste'
     """
+NORTE = 'Norte'
+SUL = 'Sul'
+LESTE = 'Leste'
+OESTE = 'Oeste'
 
+
+class Direcao:
+    def __init__(self):
+        self.valor = NORTE
+
+    def girar_a_direita(self):
+       if self.valor ==  NORTE:
+           self.valor =  LESTE
+       elif self.valor == LESTE:
+           self.valor = SUL
+       elif self.valor == SUL:
+           self.valor = OESTE
+       elif self.valor == OESTE:
+            self.valor = NORTE
+
+    rotacao_a_esquerda_dct = {
+        OESTE: SUL, SUL: LESTE, LESTE: NORTE, NORTE: OESTE
+    }
+    def girar_a_esquerda(self):
+        self.valor = self.rotacao_a_esquerda_dct[self.valor]
 
 
 class Motor:
@@ -105,6 +129,9 @@ class Motor:
     def frear(self):
         self.velocidade -= 2
         self.velocidade=max(0, self.velocidade)
+
+
+
 
 
     pass
