@@ -87,7 +87,8 @@ class FaseTestes(TestCase):
 
         porco1, porco2 = PorcoFake(), PorcoFake()
         fase.adicionar_porco(porco1, porco2)
-        self.assertListEqual([porco, porco1, porco2], fase._porcos)
+        self.assertListEqual([porco, porco1, porco2],
+                             fase._porcos)
 
     def teste_adicionar_passaro(self):
         fase = Fase()
@@ -98,7 +99,8 @@ class FaseTestes(TestCase):
 
         passaro1, passaro2 = PassaroFake(), PassaroFake()
         fase.adicionar_passaro(passaro1, passaro2)
-        self.assertListEqual([passaro, passaro1, passaro2], fase._passaros)
+        self.assertListEqual([passaro, passaro1, passaro2],
+                             fase._passaros)
 
     def teste_acabou_sem_porcos(self):
         fase = Fase()
