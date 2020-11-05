@@ -52,7 +52,8 @@ class Ator():
         :param intervalo: Intervalo a ser considerado
         :return:
         """
-        pass
+        if (self.x, self.y) == (outro_ator.x, outro_ator.y):
+            self.status = 'Destruido'
 
 
 

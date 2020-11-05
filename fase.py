@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from itertools import chain
-from atores import ATIVO
+from atores import ATIVO, DuploLancamentoExcecao
 
 
 VITORIA = 'VITORIA'
@@ -74,7 +74,7 @@ class Fase():
 
         :return:
         """
-        if self._possui_porco_ativo():
+        if not self._possui_porco_ativo():
             return VITORIA
         elif self._possui_passaros_ativos():
             return EM_ANDAMENTO
@@ -111,8 +111,7 @@ class Fase():
             for alvo in self._obstaculos + self._porcos:
                 passaro.colidir(alvo, self.intervalo_de_colisao)
             passaro.colidir_com_chao()
-        pontos=[self._transformar_em_ponto(a) for a in self._passaros+self._obstaculos+self._porcos]
-
+        pontos = [self._transformar_em_ponto(a) for a in self._passaros+self._obstaculos+self._porcos]
         return pontos
 
     def _transformar_em_ponto(self, ator):
@@ -128,4 +127,4 @@ class Fase():
         for passaro in self._passaros:
             if passaro.status == ATIVO:
                 return True
-        return False
+            return False
