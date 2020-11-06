@@ -147,7 +147,7 @@ class FaseTestes(TestCase):
                          'Sem porcos ativos o jogo deveria terminar com '
                          'vitória')
 
-        fase.adicionar_obstaculo(ObstaculoFake())
+        fase.adicionar_obstaculo(Obstaculo())
         self.assertEqual(VITORIA, fase.status,
                          'Obstáculo não interfere para definir vitória')
 
