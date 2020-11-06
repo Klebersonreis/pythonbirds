@@ -58,7 +58,7 @@ class FaseTestes(TestCase):
             passaro.colidir(porco, 3)
 
         self.assertEqual(VITORIA, fase.status,
-                         'Sem porcos ativos o jogo deveria terminar com vitória')
+                         'Sem porcos ativos o jogo deveria terminar com vitoria')
 
         fase.adicionar_obstaculo(Obstaculo())
         self.assertEqual(VITORIA, fase.status,
